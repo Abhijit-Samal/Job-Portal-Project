@@ -118,7 +118,7 @@ export const login = async(req,res) => {
         res
         .cookie("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production", // must match logout
+            secure: true, // must match logout
             sameSite: "strict",                            // must match logout
             path: "/",  
         })
@@ -144,7 +144,7 @@ export const logout = async (req, res) => {
     // First try to clear
     res.clearCookie("token", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "strict",
       path: "/", // MUST match login
     });
@@ -152,7 +152,7 @@ export const logout = async (req, res) => {
     // Also forcibly overwrite cookie with expired value
     res.cookie("token", "", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "strict",
       path: "/",
       expires: new Date(0),
