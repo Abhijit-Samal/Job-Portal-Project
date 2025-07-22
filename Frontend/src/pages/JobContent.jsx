@@ -103,7 +103,7 @@ const JobContent = () => {
                     </div>
                 </div>
                 {
-                    user.role !== "Recruiter" && (
+                    user?.role !== "Recruiter" && (
 
                         <Button className="bg-blue-600 hover:bg-blue-700" disabled={applied} onClick={HandleCLick}>
                             {applied ? "Already Applied" : <>Apply Now <MoveRight className="ml-1" /></>}
