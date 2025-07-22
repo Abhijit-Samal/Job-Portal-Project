@@ -119,7 +119,7 @@ export const login = async(req,res) => {
         .cookie("token", token, {
             httpOnly: true,
             secure: true, // must match logout
-            sameSite: "strict",                            // must match logout
+            sameSite: "None",                            // must match logout
             path: "/",  
         })
         .status(200)
@@ -145,7 +145,7 @@ export const logout = async (req, res) => {
     res.clearCookie("token", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "None",
       path: "/", // MUST match login
     });
 
@@ -153,7 +153,7 @@ export const logout = async (req, res) => {
     res.cookie("token", "", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "None",
       path: "/",
       expires: new Date(0),
     });
