@@ -32,7 +32,7 @@ const CreatedJobs = () => {
                   {job?.Details?.jobType} · {job?.Details?.location} · {job?.Details?.salary}
                 </div>
               </div>
-              <div>
+              <div className='flex flex-col'>
                 <Button type="button" onClick={() => navigate(`/dashboard/jobs/created/edit/${job._id}`)}>
                   <Edit className="mr-2 h-4 w-4" />
                   Edit
